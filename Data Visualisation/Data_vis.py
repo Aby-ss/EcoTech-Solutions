@@ -1,38 +1,40 @@
-import requests
+from asciichartpy import plot
+from rich import print
 from rich.console import Console
+from rich.panel import Panel
 from rich.table import Table
+from rich.progress import Progress
 
-# Set API endpoint URL
-url = 'https://api.spacexdata.com/v4/launches/past'
+import time
 
-# Set number of missions to retrieve
-num_missions = 10
+# Example deforestation data
+years = [2018, 2019, 2020, 2021]
+deforestation_values = [500, 600, 800, 700]
 
-# Make HTTP request to API
-response = requests.get(url)
+# Bar chart
+chart = plot(deforestation_values, {'height': 10})
+console = Console()
+console.print(Panel(chart, title="Deforestation Data"))
 
-# Check status code of response
-if response.status_code == 200:
-    # Parse response data as JSON
-    data = response.json()[:num_missions]  # only retrieve the last `num_missions` missions
-    # Create table
-    table = Table(title=f'Last {num_missions} SpaceX Missions')
-    table.add_column('Flight Number', style='cyan', justify='right')
-    table.add_column('Mission Name', style='magenta', justify='left')
-    table.add_column('Launch Date (UTC)', style='green', justify='left')
-    table.add_column('Rocket', style='blue', justify='left')
-    table.add_column('Launch Site', style='yellow', justify='left')
-    # Add rows to table
-    for mission in data:
-        flight_number = mission['flight_number']
-        mission_name = mission['name']
-        launch_date_utc = mission['date_utc']
-        rocket_name = mission['rocket']['name']
-        launch_site_name = mission['launchpad']['name']
-        table.add_row(flight_number, mission_name, launch_date_utc, rocket_name, launch_site_name)
-    # Display table
-    console = Console()
-    console.print(table)
-else:
-    # Handle error condition
-    print(f'Request failed with status code {response.status_code}')
+# Table
+table = Table(show_header=True, header_style="bold magenta")
+table.add_column("Year")
+table.add_column("Deforestation")
+for year, value in zip(years, deforestation_values):
+    table.add_row(str(year), str(value))
+console.print(table)
+
+# Progress bar
+with Progress() as progress:
+    task = progress.add_task("[cyan]Processing...", total=len(years))
+    for year in years:
+        progress.update(task, completed=years.index(year) + 1)
+        progress.refresh()
+        # Simulate processing time
+        time.sleep(0.5)
+console.print(Panel.fit("Processing complete!", title="[bold green]Status"))
+
+# Rich text
+console.print("[bold]Trends and Patterns in Deforestation:")
+console.print("[red]• Deforestation has been increasing steadily in recent years.")
+console.print("[red]• The highest deforestation value was observed in 2020.")
