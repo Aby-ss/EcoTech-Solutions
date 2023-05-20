@@ -13,10 +13,10 @@
 ## Features 📊
 
 - **Geospatial analysis: The application should have the ability to process and analyze geospatial data such as satellite imagery, land-use maps, and other data sources that can help in identifying and monitoring areas of deforestation or forest degradation.**
-- **Data visualization: The application should be able to present data in a clear and easy-to-understand format, such as maps, graphs, and charts. This will help users quickly identify trends and patterns in deforestation or forest degradation.**
+- **Data visualization ✅: The application should be able to present data in a clear and easy-to-understand format, such as maps, graphs, and charts. This will help users quickly identify trends and patterns in deforestation or forest degradation.**
 - **Real-time monitoring: The application should be able to provide real-time monitoring of forest cover and land-use change, allowing users to detect and respond to changes as they occur.**
 - **Machine learning and AI: The application should leverage machine learning and AI techniques to identify and predict areas of deforestation or forest degradation, as well as to automate the analysis of large amounts of data.**
-- **Data integration: The application should be able to integrate data from multiple sources, including satellite imagery, ground-based sensors, and other data sources, to provide a comprehensive view of forest cover and land-use change.**
+- **Data integration ✅: The application should be able to integrate data from multiple sources, including satellite imagery, ground-based sensors, and other data sources, to provide a comprehensive view of forest cover and land-use change.**
 - **Customizable alerts: The application should allow users to set customizable alerts based on specific criteria, such as the detection of deforestation in a particular region or the occurrence of a forest fire.**
 - **Historical analysis: The application should provide historical data analysis, allowing users to track changes in forest cover and land-use patterns over time.**
 - **Collaboration: The application should enable collaboration among multiple stakeholders, such as government agencies, NGOs, and local communities, to share information and coordinate efforts to address deforestation and forest degradation.**
